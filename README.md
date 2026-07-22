@@ -1,6 +1,8 @@
 # 🛡️ StegFix — A Transformer-Based Detector for Network Steganography
 
-StegFix is a web-based, real-time network steganography detection platform powered by a custom Transformer encoder — the **FeatureTokenTransformer** — capable of detecting covert channels hidden inside DNS, ICMP, TCP, and UDP traffic with **94.42% mean accuracy** and only a **0.91% false positive rate**, even on steganographic techniques never seen during training.
+StegFix is a web-based, real-time network steganography detection platform powered by a custom Transformer encoder.The **FeatureTokenTransformer** — capable of detecting covert channels hidden inside DNS, ICMP, TCP, and UDP traffic with **94.42% mean accuracy** and only a **0.91% false positive rate**, even on steganographic techniques never seen during training.
+
+<img width="292" height="411" alt="image" src="https://github.com/user-attachments/assets/1f5fafc1-4958-42a5-a339-7550aaa7ab1c" />
 
 ---
 
@@ -30,6 +32,8 @@ StegFix is a web-based, real-time network steganography detection platform power
 Network steganography hides the **existence** of communication — not just its content — inside ordinary, protocol-compliant packets. Signature-based IDS, statistical anomaly detectors, and classical ML approaches fail to generalize to previously unseen covert channel techniques.
 
 StegFix bridges the gap between academically validated deep learning research and a practically deployable Security Operations Centre (SOC) tool. It integrates a pre-trained Transformer model into a live, browser-accessible dashboard — no Python scripts, no specialist training required.
+
+<img width="575" height="324" alt="image" src="https://github.com/user-attachments/assets/892bd9e4-5ee9-4656-bcdb-3b5ac5c87f13" />
 
 ---
 
@@ -62,37 +66,7 @@ StegFix addresses all five gaps in a single evaluated framework.
 
 ## 🏗️ System Architecture
 
-```
-User (SOC Analyst) — Web Browser (React + Vite + TypeScript)
-        │  HTTPS
-        ▼
-Backend API
-  ├─ Authentication
-  ├─ Capture Control
-  ├─ Request Handling
-  ├─ Data Processing
-  └─ Result Aggregation
-        │
-        ▼
-Real-Time Traffic Capture (Npcap) — Live Packet Capture
-        │  Packets
-        ▼
-Processing Pipeline
-  ├─ Packet Processing
-  ├─ Flow Generation (5-Tuple Aggregation)
-  └─ Feature Extraction (225 Flow-Level Features)
-        │  Flow-Level Features
-        ▼
-Transformer-Based Detection Model (Python / PyTorch)
-  ├─ Binary Label        → Normal / Covert
-  ├─ Technique Label     → Header Manipulation / Timing Obfuscation / Flow Blending
-  └─ Protocol Label      → DNS / ICMP / TCP / UDP
-        │
-        ▼
-Database — Users & Sessions, Flow Records, Detection Results, Logs
-```
-
-The architecture is fully decoupled — the detection model, backend, and frontend can each be updated independently without breaking the others.
+<img width="488" height="327" alt="image" src="https://github.com/user-attachments/assets/c8656a6d-0a60-44d7-8d0c-f65d619d57c0" />
 
 ---
 
